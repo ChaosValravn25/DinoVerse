@@ -1,4 +1,4 @@
-package com.example.flutter_application_laboratorio_3
+package cl.dinoverse.dispositivosmovilesutalca
 
 import io.flutter.embedding.android.FlutterActivity
 
