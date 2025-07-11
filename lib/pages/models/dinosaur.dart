@@ -25,8 +25,7 @@ class Dinosaur {
       length: json['length'] ?? 'Unknown',
       weight: json['weight'] ?? 'Unknown',
       image: json['image'] ?? '',
-      description: json['description']?? 'Unknown',
+      description: json['description'] ?? 'Unknown',
     );
   }
-
 }

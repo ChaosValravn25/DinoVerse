@@ -1,57 +1,72 @@
-// list_content.dart
 import 'package:flutter/material.dart';
-import 'about.dart';
 import 'package:flutter_application_laboratorio_3/pages/models/dinosaur.dart';
+import 'package:flutter_application_laboratorio_3/pages/about.dart';
 import 'package:flutter_application_laboratorio_3/pages/detail_pages.dart';
+import 'package:flutter_application_laboratorio_3/pages/api.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ListContent extends StatelessWidget {
   ListContent({super.key});
 
-  final List<Dinosaur> dinos = [
-    Dinosaur(
-      name: "Tyrannosaurus Rex",
-      image: 'assets/images/t_rex.png',
-      description: "Uno de los depredadores más grandes del periodo Cretácico.",
-    ),
-     Dinosaur(
-      name: "Triceratops",
-      image: 'assets/images/triceratops.png',
-      description: "Herbívoro con tres cuernos y un escudo óseo.",
-    ),
-    Dinosaur(
-      name: "Velociraptor",
-      image: 'assets/images/velociraptor.png',
-      description: "Dinosaurio ágil y rápido, cazador en grupo.",
-    ),
-    Dinosaur(
-      name: "Brachiosaurus",
-      image: 'assets/images/brachiosaurus.png',
-      description: "Gigante herbívoro con cuello largo del Jurásico.",
-    ),
-    Dinosaur(
-      name: "Spinosaurus",
-      image: 'assets/images/Spinosaurus.png',
-      description: "Dinosaurio semiacuático con espina dorsal distintiva.",
-    ),
-  ];
+  final DinosaurService _dinosaurService = DinosaurService();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Lista de Dinosaurios")),
-      body: ListView.builder(
-        itemCount: dinos.length,
-        itemBuilder: (context, index) => ListTile(
-          title: Text(dinos[index].name),
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (_) => DetailPage(dinosaur: dinos[index]),
+      body: FutureBuilder<List<Dinosaur>>(
+        future: _dinosaurService.fetchDinosaurs(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (snapshot.hasError) {
+            print('Error en FutureBuilder: ${snapshot.error}'); // Depuración
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Error: ${snapshot.error}'),
+                  ElevatedButton(
+                    onPressed: () => (context as Element).markNeedsBuild(),
+                    child: const Text('Reintentar'),
+                  ),
+                ],
               ),
             );
-          },
-        ),
+          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return const Center(child: Text('No se encontraron dinosaurios'));
+          }
+
+          final dinos = snapshot.data!;
+          return ListView.builder(
+            itemCount: dinos.length,
+            itemBuilder: (context, index) => ListTile(
+              leading: dinos[index].image.isNotEmpty
+                  ? CachedNetworkImage(
+                      imageUrl: dinos[index].image,
+                      width: 50,
+                      height: 50,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) => const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) {
+                        print('Error al cargar imagen: $error - URL: ${dinos[index].image}'); // Depuración
+                        return const Icon(Icons.error);
+                      },
+                    )
+                  : const Icon(Icons.image_not_supported),
+              title: Text(dinos[index].name.toUpperCase()),
+              subtitle: Text('Dieta: ${dinos[index].diet}'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => DetailPage(dinosaur: dinos[index]),
+                  ),
+                );
+              },
+            ),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -65,4 +80,3 @@ class ListContent extends StatelessWidget {
     );
   }
 }
-

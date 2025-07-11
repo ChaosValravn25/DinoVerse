@@ -12,6 +12,7 @@ class FeedbackPage extends StatefulWidget {
 
 class _FeedbackPageState extends State<FeedbackPage> {
   late Future<List<PreguntaFeedback>> _feedbackQuestions;
+  final Map<int, int> _questionValues = {}; // Almacena los valores seleccionados por índice
 
   Future<List<PreguntaFeedback>> _loadQuestions() async {
     final String jsonStr = await rootBundle.loadString('assets/json/preguntas.json');
@@ -55,11 +56,33 @@ class _FeedbackPageState extends State<FeedbackPage> {
             itemCount: questions.length,
             itemBuilder: (context, index) {
               final q = questions[index];
+              final currentValue = _questionValues[index] ?? q.valor;
+
               return Card(
-                child: ListTile(
-                  title: Text(q.titulo),
-                  subtitle: Text("Máx: ${q.max}\nMín: ${q.min}"),
-                  trailing: Text("${q.valor} ⭐"),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ListTile(
+                        title: Text(q.titulo),
+                        subtitle: Text("Máx: ${q.max}\nMín: ${q.min}"),
+                        trailing: Text("$currentValue ⭐"),
+                      ),
+                      Slider(
+                        value: currentValue.toDouble(),
+                        min: 0.toDouble(),
+                        max: 5.toDouble(),
+                        divisions: 5 - 0,
+                        label: currentValue.toString(),
+                        onChanged: (value) {
+                          setState(() {
+                            _questionValues[index] = value.toInt();
+                          });
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
