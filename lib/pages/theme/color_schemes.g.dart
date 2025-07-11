@@ -39,9 +39,9 @@ const darkColorScheme = ColorScheme(
   errorContainer: Color(0xFFD32F2F),
   onErrorContainer: Color(0xFFFFEBEE),
   surface: Color(0xFF121212),
-  onSurface: Color(0xFFE0E0E0),
+  onSurface: Color(0xFF000000),
   surfaceTint: Color(0xFF81C784),
-  outline: Color(0xFFBDBDBD),
+  outline: Color(0xFFBDBDBD),//Color(0xFFBDBDBD)
   shadow: Color(0xFF000000),
   inverseSurface: Color(0xFFE0E0E0),
   onInverseSurface: Color(0xFF121212),
