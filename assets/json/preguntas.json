@@ -1,62 +1,62 @@
 {
-  "usabilidad": [
+  "usability": [
     {
-      "titulo": "¿Qué tan fácil fue navegar a través de la aplicación?",
-      "valor": 0,
-      "min": "0 estrellas: Fue muy difícil encontrar las funcionalidades, la navegación fue confusa.",
-      "max": "5 estrellas: Fue extremadamente fácil, la navegación es intuitiva y sin complicaciones."
+      "title": "How easy was it to navigate through the app?",
+      "value": 0,
+      "min": "0 stars: It was very difficult to find the features; navigation was confusing.",
+      "max": "5 stars: It was extremely easy; navigation is intuitive and hassle-free."
     },
     {
-      "titulo": "¿Pudiste completar tus tareas en la aplicación sin problemas?",
-      "valor": 0,
-      "min": "0 estrellas: No pude completar las tareas, fue frustrante.",
-      "max": "5 estrellas: Pude completar todas las tareas de forma rápida y eficiente."
+      "title": "Were you able to complete your tasks in the app without issues?",
+      "value": 0,
+      "min": "0 stars: I couldn't complete the tasks; it was frustrating.",
+      "max": "5 stars: I was able to complete all tasks quickly and efficiently."
     },
     {
-      "titulo": "¿Cómo calificas la interfaz gráfica en términos de diseño y claridad?",
-      "valor": 0,
-      "min": "0 estrellas: La interfaz es poco clara y difícil de entender.",
-      "max": "5 estrellas: La interfaz es clara, atractiva y facilita el uso."
+      "title": "How would you rate the graphical interface in terms of design and clarity?",
+      "value": 0,
+      "min": "0 stars: The interface is unclear and hard to understand.",
+      "max": "5 stars: The interface is clear, attractive, and easy to use."
     }
   ],
-  "contenido": [
+  "content": [
     {
-      "titulo": "¿El contenido de la aplicación fue útil para ti?",
-      "valor": 0,
-      "min": "0 estrellas: El contenido no fue relevante ni útil.",
-      "max": "5 estrellas: El contenido fue muy útil y relevante para mis necesidades."
+      "title": "Was the app content useful to you?",
+      "value": 0,
+      "min": "0 stars: The content was neither relevant nor useful.",
+      "max": "5 stars: The content was very useful and relevant to my needs."
     },
     {
-      "titulo": "¿Qué tan bien el contenido de la aplicación se adapta a tus expectativas?",
-      "valor": 0,
-      "min": "0 estrellas: El contenido no cumplió con mis expectativas.",
-      "max": "5 estrellas: El contenido superó completamente mis expectativas."
+      "title": "How well did the app's content meet your expectations?",
+      "value": 0,
+      "min": "0 stars: The content did not meet my expectations.",
+      "max": "5 stars: The content completely exceeded my expectations."
     },
     {
-      "titulo": "¿El contenido de la aplicación está presentado de manera clara y comprensible?",
-      "valor": 0,
-      "min": "0 estrellas: El contenido está mal estructurado o es confuso.",
-      "max": "5 estrellas: El contenido está muy bien presentado y es fácil de comprender."
+      "title": "Is the content presented in a clear and understandable way?",
+      "value": 0,
+      "min": "0 stars: The content is poorly structured or confusing.",
+      "max": "5 stars: The content is well presented and easy to understand."
     }
   ],
-  "compartir": [
+  "sharing": [
     {
-      "titulo": "¿Qué tan probable es que recomiendes esta aplicación a un amigo?",
-      "valor": 0,
-      "min": "0 estrellas: No la recomendaría en absoluto.",
-      "max": "5 estrellas: Definitivamente la recomendaría."
+      "title": "How likely are you to recommend this app to a friend?",
+      "value": 0,
+      "min": "0 stars: I would not recommend it at all.",
+      "max": "5 stars: I would definitely recommend it."
     },
     {
-      "titulo": "¿Cómo te sentirías al compartir esta aplicación con alguien más?",
-      "valor": 0,
-      "min": "0 estrellas: No me sentiría cómodo compartiéndola.",
-      "max": "5 estrellas: Me sentiría muy cómodo compartiéndola."
+      "title": "How comfortable would you feel sharing this app with someone else?",
+      "value": 0,
+      "min": "0 stars: I would not feel comfortable sharing it.",
+      "max": "5 stars: I would feel very comfortable sharing it."
     },
     {
-      "titulo": "¿Crees que esta aplicación podría ser útil para personas cercanas a ti?",
-      "valor": 0,
-      "min": "0 estrellas: No creo que sea útil para otras personas.",
-      "max": "5 estrellas: Estoy seguro de que sería muy útil para personas cercanas."
+      "title": "Do you think this app could be useful to people close to you?",
+      "value": 0,
+      "min": "0 stars: I don't think it would be useful to others.",
+      "max": "5 stars: I'm sure it would be very useful to people close to me."
     }
   ]
 }

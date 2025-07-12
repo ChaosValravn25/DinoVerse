@@ -1,53 +1,63 @@
 class UserFeedback {
   final String userId;
-  final Map<String, int> usabilidad;
-  final Map<String, int> contenido;
-  final Map<String, int> compartir;
+  final Map<String, int> usability;
+  final Map<String, int> content;
+  final Map<String, int> sharing;
 
   UserFeedback({
     required this.userId,
-    required this.usabilidad,
-    required this.contenido,
-    required this.compartir,
+    required this.usability,
+    required this.content,
+    required this.sharing,
   });
 
   Map<String, dynamic> toJson() {
     return {
       'userId': userId,
-      'usabilidad': usabilidad,
-      'contenido': contenido,
-      'compartir': compartir,
+      'usability': usability,
+      'content': content,
+      'sharing': sharing,
     };
   }
 
   factory UserFeedback.fromJson(Map<String, dynamic> json) {
     return UserFeedback(
       userId: json['userId'] ?? '',
-      usabilidad: Map<String, int>.from(json['usabilidad'] ?? {}),
-      contenido: Map<String, int>.from(json['contenido'] ?? {}),
-      compartir: Map<String, int>.from(json['compartir'] ?? {}),
+      usability: Map<String, int>.from(json['usability'] ?? {}),
+      content: Map<String, int>.from(json['content'] ?? {}),
+      sharing: Map<String, int>.from(json['sharing'] ?? {}),
     );
   }
 }
+
 class PreguntaFeedback {
-  final String titulo;
-  final int valor;
+  final String title;
+  final int value;
   final String min;
   final String max;
 
   PreguntaFeedback({
-    required this.titulo,
-    required this.valor,
+    required this.title,
+    required this.value,
     required this.min,
     required this.max,
   });
 
   factory PreguntaFeedback.fromJson(Map<String, dynamic> json) {
     return PreguntaFeedback(
-      titulo: json['titulo'],
-      valor: json['valor'],
+      title: json['title'],
+      value: json['value'],
       min: json['min'],
       max: json['max'],
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'value': value,
+      'min': min,
+      'max': max,
+    };
   }
 }

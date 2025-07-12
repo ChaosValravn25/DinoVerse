@@ -21,15 +21,15 @@ class DetailPage extends StatelessWidget {
         await imageFile.writeAsBytes(response.bodyBytes);
 
         final String message =
-            '📸 ¡Mira este dinosaurio! Nombre: ${dinosaur.name}\n¡Comparte con tus amigos! 🦖';
+            '📸 See this dinosaur! Name: ${dinosaur.name}\n¡Share with your friends! 🦖';
 
         await Share.shareXFiles([XFile(imagePath)], text: message);
       } else {
-        throw 'No se pudo descargar la imagen';
+        throw 'Dowload failed image not found';
       }
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error al compartir: $e')),
+        SnackBar(content: Text('Error to Share: $e')),
       );
     }
   }
@@ -48,7 +48,7 @@ class DetailPage extends StatelessWidget {
                 await _shareViaWhatsApp(context);
               } catch (e) {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Error al compartir: $e')),
+                  SnackBar(content: Text('Error to Share: $e')),
                 );
               }
             },
@@ -80,28 +80,28 @@ class DetailPage extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                'Descripción: ${dinosaur.description}',
+                'Description: ${dinosaur.description}',
                 style: const TextStyle(fontSize: 16),
                 textAlign: TextAlign.justify,
               ),
               const SizedBox(height: 10),
               Text(
-                'Dieta: ${dinosaur.diet}',
+                'Diet: ${dinosaur.diet}',
                 style: const TextStyle(fontSize: 16, color: Colors.green),
               ),
               const SizedBox(height: 10),
               Text(
-                'Período: ${dinosaur.period}',
+                'Period: ${dinosaur.period}',
                 style: const TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 10),
               Text(
-                'Longitud: ${dinosaur.length}',
+                'Length: ${dinosaur.length}',
                 style: const TextStyle(fontSize: 16),
               ),
               const SizedBox(height: 10),
               Text(
-                'Peso: ${dinosaur.weight}',
+                'Weight: ${dinosaur.weight}',
                 style: const TextStyle(fontSize: 16),
               ),
             ],
