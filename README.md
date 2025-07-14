@@ -1,7 +1,7 @@
 
 # Project Title: DinoVerse
 
-Integrante: Ivonne Santander soto
+Integrantes: Ivonne Santander Soto y Pablo Gutiérrez
 
 Asignatura: Programación de Dispositivos Móviles
 
@@ -45,3 +45,16 @@ DinoVerse es una aplicación móvil desarrollada con Flutter que funciona como u
 
 - flutter_svg para iconos en formato SVG
 
+- share_plus para compartir via whatsapp
+
+- [API](https://dinoapi.brunosouzadev.com/api/dinosaurs)
+
+- image_picker para seleccionar una imagen desde la camara o galeria.
+## Diagrama de Flujo
+
+- ![Diagrama](/assets/images/DF.jpg)
+
+
+## Instalacion (APK)
+
+- [Este es el APK](app-release.apk)

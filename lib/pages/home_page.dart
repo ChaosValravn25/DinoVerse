@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_laboratorio_3/pages/list_content.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_application_laboratorio_3/provider/app_data.dart';
@@ -114,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                 title: const Text("Explore Dinosaurs"),
                 onTap: () {
                   Navigator.pop(context);
-                  // No navega a ListContent aquí, solo como ejemplo
+                  Navigator.push(context, MaterialPageRoute(builder: (_) =>  ListContent()));
                 },
               ),
               ListTile(
@@ -150,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
-              ListTile(
+              /*ListTile(
                 leading: const Icon(Icons.event),
                 title: const Text("Activities"),
                 onTap: () {
@@ -160,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(builder: (_) => const ActivityPage()),
                   );
                 },
-              ),
+              ),*/
               ListTile(
                 leading: const Icon(Icons.feedback),
                 title: const Text("Your Opinion"),
